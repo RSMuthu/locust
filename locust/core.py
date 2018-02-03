@@ -1,24 +1,21 @@
-import logging
-import random
-import sys
-import traceback
-from time import time
-
 import gevent
+from gevent import monkey, GreenletExit
 import six
-
-from gevent import GreenletExit, monkey
 from six.moves import xrange
 
-# The monkey patching must run before requests is imported, or else 
-# we'll get an infinite recursion when doing SSL/HTTPS requests.
-# See: https://github.com/requests/requests/issues/3752#issuecomment-294608002
-monkey.patch_all()
+monkey.patch_all(thread=False)
 
-from . import events
+from time import time
+import sys
+import random
+import warnings
+import traceback
+import logging
+
 from .clients import HttpSession
-from .exception import (InterruptTaskSet, LocustError, RescheduleTask,
-                        RescheduleTaskImmediately, StopLocust)
+from . import events
+
+from .exception import LocustError, InterruptTaskSet, RescheduleTask, RescheduleTaskImmediately, StopLocust
 
 logger = logging.getLogger(__name__)
 
@@ -356,3 +353,4 @@ class TaskSet(object):
         Locust instance.
         """
         return self.locust.client
+
