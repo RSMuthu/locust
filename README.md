@@ -1,4 +1,4 @@
-# Locust
+# Locust (0.7.5)
 
 [![Build Status](https://secure.travis-ci.org/locustio/locust.png)](http://travis-ci.org/locustio/locust) 
 [![Gitter Chat](https://badges.gitter.im/locustio/locust.png)](https://gitter.im/locustio/locust) 
