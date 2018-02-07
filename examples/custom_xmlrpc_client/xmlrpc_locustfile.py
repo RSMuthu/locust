@@ -1,7 +1,7 @@
 import time
 import xmlrpclib
 
-from locust import Locust, TaskSet, events, task
+from locust import Locust, events, task, TaskSet
 
 
 class XmlRpcClient(xmlrpclib.ServerProxy):

@@ -1,6 +1,5 @@
 from locust import HttpLocust, TaskSet, task
 
-
 def index(l):
     l.client.get("/")
 

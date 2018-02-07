@@ -1,7 +1,5 @@
 import zmq.green as zmq
-
 from .protocol import Message
-
 
 class BaseSocket(object):
 

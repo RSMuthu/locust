@@ -2,30 +2,6 @@
 Changelog
 ##########
 
-0.8.1
-=====
-
-* Updated pyzmq version, and changed so that we don't pin a specific version.
-  This makes it easier to install Locust on Windows.
-
-
-0.8
-===
-
-* Python 3 support
-* Dropped support for Python 2.6
-* Added :code:`--no-reset-stats` option for controling if the statistics should be reset once 
-  the hatching is complete
-* Added charts to the web UI for requests per second, average response time, and number of 
-  simulated users.
-* Updated the design of the web UI.
-* Added ability to write a CSV file for results via command line flag
-* Added the URL of the host that is currently being tested to the web UI.
-* We now also apply gevent's monkey patching of threads. This fixes an issue when 
-  using Locust to test Cassandra (https://github.com/locustio/locust/issues/569).
-* Various bug fixes and improvements
-
-
 0.7.5
 =====
 

@@ -1,12 +1,11 @@
+import unittest
 import six
 
-from locust import InterruptTaskSet, ResponseError
-from locust.core import HttpLocust, Locust, TaskSet, events, task
-from locust.exception import (CatchResponseError, LocustError, RescheduleTask,
-                              RescheduleTaskImmediately)
+from locust.core import HttpLocust, Locust, TaskSet, task, events
+from locust import ResponseError, InterruptTaskSet
+from locust.exception import CatchResponseError, RescheduleTask, RescheduleTaskImmediately, LocustError
 
 from .testcases import LocustTestCase, WebserverTestCase
-
 
 class TestTaskSet(LocustTestCase):
     def setUp(self):
@@ -179,8 +178,8 @@ class TestTaskSet(LocustTestCase):
     
     def test_sub_taskset(self):
         class MySubTaskSet(TaskSet):
-            min_wait = 1
-            max_wait = 1
+            min_wait=1
+            max_wait=1
             @task()
             def a_task(self):
                 self.locust.sub_locust_task_executed = True
@@ -199,8 +198,8 @@ class TestTaskSet(LocustTestCase):
         class MyTaskSet(TaskSet):
             @task
             class MySubTaskSet(TaskSet):
-                min_wait = 1
-                max_wait = 1
+                min_wait=1
+                max_wait=1
                 @task()
                 def a_task(self):
                     self.locust.sub_locust_task_executed = True
@@ -214,8 +213,8 @@ class TestTaskSet(LocustTestCase):
     
     def test_sub_taskset_arguments(self):
         class MySubTaskSet(TaskSet):
-            min_wait = 1
-            max_wait = 1
+            min_wait=1
+            max_wait=1
             @task()
             def a_task(self):
                 self.locust.sub_taskset_args = self.args
@@ -404,7 +403,7 @@ class TestWebLocustClass(WebserverTestCase):
         self.assertEqual(401, unauthorized.client.get("/basic_auth").status_code)
     
     def test_log_request_name_argument(self):
-        from locust.stats import global_stats
+        from locust.stats import RequestStats, global_stats
         self.response = ""
         
         class MyLocust(HttpLocust):

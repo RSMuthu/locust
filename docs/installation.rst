@@ -7,6 +7,9 @@ Locust is available on PyPI and can be installed through pip or easy_install
 
     pip install locustio
 
+or::
+
+    easy_install locustio
 
 When Locust is installed, a **locust** command should be available in your shell (if you're not using 
 virtualenv—which you should—make sure your python script directory is on your path).
@@ -19,25 +22,29 @@ To see available options, run::
 Supported Python Versions
 -------------------------
 
-Locust supports Python 2.7, 3.3, 3.4, 3.5, and 3.6.
+Locust requires **Python 2.6+**.  It is not currently compatible with Python 3.x.
 
+
+Installing ZeroMQ
+-----------------
+
+If you intend to run Locust distributed across multiple processes/machines, we recommend you to also 
+install **pyzmq**::
+
+    pip install pyzmq
+
+or::
+
+    easy_install pyzmq
 
 Installing Locust on Windows
 ----------------------------
 
-On Windows, running ``pip install locustio`` *should* work. 
-
-However, if it doesn't, chances are that it can be fixed by first installing
-the pre built binary packages for pyzmq, gevent and greenlet. 
+The easiest way to get Locust running on Windows is to first install pre built binary packages for
+gevent and greenlet and then follow the above instructions. 
 
 You can find an unofficial collection of pre built python packages for windows here: 
 `http://www.lfd.uci.edu/~gohlke/pythonlibs/ <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_
-
-When you've downloaded a pre-built ``.whl`` file, you can install it with::
-
-    pip install name-of-file.whl
-
-Once you've done that you should be able to just ``pip install locustio``. 
 
 .. note::
 
@@ -52,9 +59,9 @@ Installing Locust on OS X
 The following is currently the shortest path to installing gevent on OS X using Homebrew.
 
 #. Install `Homebrew <http://mxcl.github.com/homebrew/>`_.
-#. Install libev (dependency for gevent)::
+#. Install libevent (dependency for gevent)::
 
-    brew install libev
+    brew install libevent
 
 #. Then follow the above instructions.
 
